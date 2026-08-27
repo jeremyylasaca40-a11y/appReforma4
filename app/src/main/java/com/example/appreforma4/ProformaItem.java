@@ -5,14 +5,21 @@ public class ProformaItem {
     private String producto;
     private double precio;
     private int cantidad;
-    private double total;
 
+    // Constructor con 4 parámetros
+    public ProformaItem(String codigo, String producto, double precio, int cantidad) {
+        this.codigo = codigo;
+        this.producto = producto;
+        this.precio = precio;
+        this.cantidad = cantidad;
+    }
+
+    // Constructor opcional con 5 parámetros (si pasas el total)
     public ProformaItem(String codigo, String producto, double precio, int cantidad, double total) {
         this.codigo = codigo;
         this.producto = producto;
         this.precio = precio;
         this.cantidad = cantidad;
-        this.total = total;
     }
 
     // Getters
@@ -20,5 +27,19 @@ public class ProformaItem {
     public String getProducto() { return producto; }
     public double getPrecio() { return precio; }
     public int getCantidad() { return cantidad; }
-    public double getTotal() { return total; }
+
+    // Setters
+    public void setCodigo(String codigo) { this.codigo = codigo; }
+    public void setProducto(String producto) { this.producto = producto; }
+    public void setPrecio(double precio) { this.precio = precio; }
+    public void setCantidad(int cantidad) { this.cantidad = cantidad; }
+
+    public double getTotal() {
+        return precio * cantidad;
+    }
+
+    @Override
+    public String toString() {
+        return "DNI: " + codigo + " | " + producto + " | S/. " + precio + " | Cant: " + cantidad + " | Total: S/. " + getTotal();
+    }
 }
